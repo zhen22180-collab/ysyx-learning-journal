@@ -39,6 +39,12 @@ python -m http.server 5173
 http://localhost:5173
 ```
 
+## 在线页面
+
+```text
+https://zhen22180-collab.github.io/ysyx-learning-journal/
+```
+
 ## 发布到 GitHub
 
 建议仓库名：
