@@ -34,7 +34,7 @@ Logisim 是一种用于设计和模拟数字逻辑电路的开源工具（Digita
 
 
 
-!\[Logisim 初次实验截图](../images/2026-05-13-logisim-first-circuit.png)
+![Logisim 初次实验截图](../images/2026-05-13-logisim-first-circuit.png)
 
 
 
