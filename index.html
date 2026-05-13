@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="LLZ 的一生一芯学习博客：记录处理器、系统软件和工程复盘。"
+    />
+    <title>LLZ | 一生一芯学习日志</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="站点导航">
+      <a class="brand" href="#top" aria-label="回到首页">
+        <span class="brand-mark" aria-hidden="true">LLZ</span>
+        <span>YSYX Journal</span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about">项目</a>
+        <a href="#roadmap">路线</a>
+        <a href="#writing">日志</a>
+        <a href="#reflection">复盘</a>
+        <a href="#sources">来源</a>
+      </nav>
+      <button class="icon-button" type="button" id="themeToggle" aria-label="切换配色">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <canvas id="chipCanvas" aria-hidden="true"></canvas>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Personal processor-design journal</p>
+          <h1 id="hero-title">一生一芯学习日志</h1>
+          <p class="hero-copy">
+            用公开可验证的工程日志，记录我从系统软件、RTL、SoC 到体系结构兴趣的学习路径。
+            这个页面既是博客首页，也是项目证据索引。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#roadmap">查看学习路线</a>
+            <a class="button ghost" href="#writing">写本周日志</a>
+          </div>
+          <dl class="hero-metrics" aria-label="当前目标">
+            <div>
+              <dt>方向</dt>
+              <dd>Computer Architecture</dd>
+            </div>
+            <div>
+              <dt>项目</dt>
+              <dd>一生一芯 / YSYX</dd>
+            </div>
+            <div>
+              <dt>方式</dt>
+              <dd>工程日志 + 可复现证据</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section intro-section" id="about" aria-labelledby="about-title">
+        <div class="section-inner two-column">
+          <div>
+            <p class="eyebrow">Project context</p>
+            <h2 id="about-title">一生一芯是什么</h2>
+            <p class="section-lead">
+              一生一芯是中国科学院大学计算机科学与技术学院和中国科学院计算技术研究所于
+              2019 年发起的开源处理器芯片设计实践项目。它强调完整链路：从程序运行机理、
+              模拟器和基础设施，到处理器核、SoC、操作系统运行与工程验证。
+            </p>
+          </div>
+          <div class="callout">
+            <p>
+              它的价值不只是“学过处理器”，而是能展示如何把抽象课程知识变成可复现的
+              commit、测试、波形、性能数据和阶段性复盘。
+            </p>
+          </div>
+        </div>
+
+        <div class="section-inner card-grid">
+          <article class="info-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M9 3h6v3h3v3h3v6h-3v3h-3v3H9v-3H6v-3H3V9h3V6h3V3Zm2 5v8h2V8h-2Zm-4 4v4h2v-4H7Zm8 0v4h2v-4h-2Z" />
+              </svg>
+            </div>
+            <h3>开源芯片训练</h3>
+            <p>以 RISC-V 和系统级验证为主线，把体系结构、编译运行环境和硬件实现连接起来。</p>
+          </article>
+          <article class="info-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 4h16v4H4V4Zm0 6h7v10H4V10Zm9 0h7v10h-7V10Zm-7 2v6h3v-6H6Zm9 0v6h3v-6h-3Z" />
+              </svg>
+            </div>
+            <h3>项目制证据</h3>
+            <p>适合持续沉淀日志、实验报告、bug 复盘、测试结果和阶段性 demo。</p>
+          </article>
+          <article class="info-card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3 4 7v10l8 4 8-4V7l-8-4Zm0 2.2L17.6 8 12 10.8 6.4 8 12 5.2ZM6 9.7l5 2.5v6.2l-5-2.5V9.7Zm7 8.7v-6.2l5-2.5v6.2l-5 2.5Z" />
+              </svg>
+            </div>
+            <h3>研究兴趣</h3>
+            <p>自然连接计算机体系结构、嵌入式系统、EDA、操作系统和硬件/软件协同设计。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section roadmap-section" id="roadmap" aria-labelledby="roadmap-title">
+        <div class="section-inner">
+          <p class="eyebrow">Learning roadmap</p>
+          <h2 id="roadmap-title">六个月学习路线</h2>
+          <p class="section-lead narrow">
+            下面的路线偏向“可复现产出”：每个阶段都留下能被他人检查的证据，而不是只写“学习了某知识点”。
+          </p>
+        </div>
+        <div class="section-inner timeline" aria-label="学习路线">
+          <article class="timeline-item">
+            <span class="step">01</span>
+            <h3>环境与计算机系统基础</h3>
+            <p>搭建 Linux/WSL、Git、C/C++、Makefile、GDB 和 verilator 记录。输出环境复现文档。</p>
+          </article>
+          <article class="timeline-item">
+            <span class="step">02</span>
+            <h3>NEMU / 程序运行机理</h3>
+            <p>用模拟器理解指令、内存、异常和设备抽象。输出 bug diary 与关键函数阅读笔记。</p>
+          </article>
+          <article class="timeline-item">
+            <span class="step">03</span>
+            <h3>RTL 处理器核</h3>
+            <p>实现单周期或流水线 CPU，关注仿真、波形、指令测试和差分测试。输出波形截图和测试矩阵。</p>
+          </article>
+          <article class="timeline-item">
+            <span class="step">04</span>
+            <h3>SoC 与外设</h3>
+            <p>连接总线、存储、UART、timer 等模块，形成可运行软件栈的最小系统。输出系统框图。</p>
+          </article>
+          <article class="timeline-item">
+            <span class="step">05</span>
+            <h3>操作系统与应用</h3>
+            <p>运行更复杂的软件负载，记录失败、调试路径、性能瓶颈和正确性验证。</p>
+          </article>
+          <article class="timeline-item">
+            <span class="step">06</span>
+            <h3>项目总结沉淀</h3>
+            <p>整理英文项目页、关键技术说明、复盘文章和方向索引，把工程经历沉淀成长期可维护的资料。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section writing-section" id="writing" aria-labelledby="writing-title">
+        <div class="section-inner split-layout">
+          <div>
+            <p class="eyebrow">Blog index</p>
+            <h2 id="writing-title">学习日志</h2>
+            <p class="section-lead">
+              用固定格式写日志：问题、尝试、证据、结论、下一步。这样以后整理项目时，不需要临时回忆细节。
+            </p>
+
+            <div class="filter-bar" aria-label="日志筛选">
+              <button class="filter-pill active" type="button" data-filter="all">全部</button>
+              <button class="filter-pill" type="button" data-filter="systems">系统</button>
+              <button class="filter-pill" type="button" data-filter="rtl">RTL</button>
+              <button class="filter-pill" type="button" data-filter="summary">总结</button>
+            </div>
+
+            <div class="post-list" id="postList">
+              <article class="post-card" data-tags="systems summary">
+                <p class="post-meta">Week 01 · systems</p>
+                <h3>从一生一芯开始：建立可复现的学习日志</h3>
+                <p>把项目动机、课程背景、技术方向和第一周环境搭建写成一篇可公开的开篇日志。</p>
+                <a href="posts/2026-05-12-ysyx-start.md">阅读草稿</a>
+              </article>
+              <article class="post-card" data-tags="systems">
+                <p class="post-meta">Week 02 · systems</p>
+                <h3>NEMU 阅读笔记：从指令执行循环开始</h3>
+                <p>记录模拟器主循环、调试命令、ISA 状态和最小测试程序的观察结果。</p>
+                <a href="posts/log-template.md">使用模板</a>
+              </article>
+              <article class="post-card" data-tags="rtl">
+                <p class="post-meta">Week 04 · rtl</p>
+                <h3>第一个 RTL checkpoint：波形、测试和复盘</h3>
+                <p>面向硬件实现保留证据：模块图、测试矩阵、失败样例和修复前后的行为差异。</p>
+                <a href="posts/log-template.md">使用模板</a>
+              </article>
+            </div>
+          </div>
+
+          <aside class="notebook" aria-labelledby="notebook-title">
+            <div class="notebook-header">
+              <h3 id="notebook-title">本地札记</h3>
+              <span id="noteCount">0</span>
+            </div>
+            <label class="visually-hidden" for="noteInput">输入学习札记</label>
+            <textarea
+              id="noteInput"
+              rows="7"
+              placeholder="今天解决了什么问题？留下 commit、测试或截图线索。"
+            ></textarea>
+            <div class="notebook-actions">
+              <button class="button primary compact" type="button" id="saveNote">保存</button>
+              <button class="button secondary compact" type="button" id="clearNotes">清空</button>
+            </div>
+            <div class="saved-notes" id="savedNotes" aria-live="polite"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section reflection-section" id="reflection" aria-labelledby="reflection-title">
+        <div class="section-inner">
+          <p class="eyebrow">Reflection notes</p>
+          <h2 id="reflection-title">把学习经历整理成技术资产</h2>
+          <div class="reflection-grid">
+            <article>
+              <h3>项目说明</h3>
+              <p>
+                维护一份清晰的英文项目 README，解释项目背景、技术路线、验证方法和阶段性结果。
+              </p>
+            </article>
+            <article>
+              <h3>技术复盘</h3>
+              <p>
+                把“喜欢底层系统”具体化为可验证、可扩展的计算机体系结构和硬件/软件协同设计问题。
+              </p>
+            </article>
+            <article>
+              <h3>方向索引</h3>
+              <p>
+                按 Computer Architecture、Embedded Systems、EDA、Operating Systems、
+                HW/SW Co-design 等关键词整理论文、课程和实验室资料。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section evidence-section" aria-labelledby="evidence-title">
+        <div class="section-inner two-column">
+          <div>
+            <p class="eyebrow">Evidence board</p>
+            <h2 id="evidence-title">项目证据清单</h2>
+            <p class="section-lead">
+              最有说服力的不是“做过”，而是别人点开后能看到你怎么做、怎么验证、怎么迭代。
+            </p>
+          </div>
+          <ul class="evidence-list">
+            <li><span></span>每周一篇日志，包含问题、实验、结果和下一步</li>
+            <li><span></span>每个 milestone 对应 commit、测试命令和截图</li>
+            <li><span></span>关键 bug 保留最小复现、波形或调试记录</li>
+            <li><span></span>最终整理英文 README、技术摘要和项目展示页</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section sources-section" id="sources" aria-labelledby="sources-title">
+        <div class="section-inner">
+          <p class="eyebrow">Sources</p>
+          <h2 id="sources-title">公开资料入口</h2>
+          <div class="source-links">
+            <a href="https://ysyx.oscc.cc/project/intro.html" target="_blank" rel="noreferrer">
+              一生一芯项目介绍
+            </a>
+            <a href="https://ysyx.oscc.cc/en/project/intro.html" target="_blank" rel="noreferrer">
+              One Student One Chip English intro
+            </a>
+            <a href="https://ysyx.oscc.cc/docs/en/2407/e/3.html" target="_blank" rel="noreferrer">
+              Official course documentation
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>LLZ · 一生一芯学习日志 · Built for reproducible engineering notes.</p>
+      <a href="#top">回到顶部</a>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>
