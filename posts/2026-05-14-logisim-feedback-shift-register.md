@@ -26,7 +26,7 @@
 
 
 
-!\[Logisim 反馈移位寄存器实验截图](../images/2026-05-14-logisim-1.png)
+![Logisim 反馈移位寄存器实验截图](../images/2026-05-14-logisim-1.png)
 
 
 
@@ -52,7 +52,7 @@
 
 
 
-!\[Logisim 反馈移位寄存器分析](../images/2026-05-14-logisim-2.jpg)
+![Logisim 反馈移位寄存器分析](../images/2026-05-14-logisim-2.jpg)
 
 
 
@@ -64,7 +64,7 @@
 
 
 
-!\[Logisim 反馈移位寄存器仿真](../images/2026-05-14-logisim-3.png)
+![Logisim 反馈移位寄存器仿真](../images/2026-05-14-logisim-3.png)
 
 
 
